@@ -1,12 +1,17 @@
 import React from "react";
+
+// importing router components
 import { BrowserRouter as Router} from "react-router-dom";
 import {Route, Link} from "react-router-dom";
 
-// Main component
-class BasicExample extends React.Component{
+// import custom Components
+import Home from "./components/Home"
+import About from "./components/About"
+import Topics from "./components/Topics"
+
+class Navigation extends React.Component{
   render(){
-    return <Router>
-      <div>
+    return <nav>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -18,6 +23,27 @@ class BasicExample extends React.Component{
             <Link to="/topics">Topics</Link>
           </li>
         </ul>
+    </nav>
+  }
+}
+
+class Header extends React.Component{
+  render(){
+    return <header>
+              <div id="logo" />
+              <Navigation />
+           </header>
+
+  }
+}
+
+
+// component App
+export default class App extends React.Component{
+  render(){
+    return <Router>
+      <div>
+        <Header/>
 
         <hr />
         <section>
@@ -29,56 +55,3 @@ class BasicExample extends React.Component{
     </Router>
   }
 }
-
-// Simple regular boring components
-class Home extends React.Component {
-    render(){
-      return <div>
-                <h2>Homeish</h2>
-             </div>
-    }
-}
-class About extends React.Component {
-    render(){
-      return <div>
-                <h2>Something to thing about</h2>
-             </div>
-    }
-}
-
-// Nested routes and dynamic rendering
-class Topics extends React.Component {
-  render(){
-    return <div>
-      <h2>Topics</h2>
-      <ul>
-        <li>
-          <Link to={`${this.props.match.url}/givenParam`}>Rendering with React</Link>
-        </li>
-        <li>
-          <Link to={`${this.props.match.url}/components`}>Components</Link>
-        </li>
-        <li>
-          <Link to={`${this.props.match.url}/props-v-state`}>Props v. State</Link>
-        </li>
-      </ul>
-
-      <Route path={`${this.props.match.url}/:topicId`} component={Topic} />
-      <Route exact path={this.props.match.url}
-        render={
-           () => <h3>Please select a topic.</h3>
-        }
-      />
-    </div>
-  }
-}
-class Topic extends React.Component {
-    render(){ // show me what U got...
-      return <div>
-                <h3>{this.props.match.params.topicId}</h3>
-             </div>
-    }
-}
-
-
-export default BasicExample;
