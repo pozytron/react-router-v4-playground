@@ -27,22 +27,20 @@ class Topics extends React.Component {
         </NavItem>
           <NavDropdown eventKey={4} title="Dropdown" id="basic-nav-dropdown">
             <MenuItem eventKey={4.1}>
-              <Link to={`${this.props.match.url}/givenParam`}>Rendering with React</Link>
+              <Link to={`${this.props.match.url}/givenParam`}>Passing string</Link>
             </MenuItem>
             <MenuItem eventKey={4.2}>
-              <Link to={`${this.props.match.url}/components`}>Components</Link>
+              <Link to={`${this.props.match.url}/movie/234/drama`}>another one</Link>
             </MenuItem>
             <MenuItem eventKey={4.3}>
-              <Link to={`${this.props.match.url}/props-v-state`}>Props v. State</Link>
+              <Link to={`${this.props.match.url}/props-v-state`}>and again...</Link>
             </MenuItem>
-            <MenuItem divider />
-            <MenuItem eventKey={4.4}>Separated link</MenuItem>
           </NavDropdown>
         </Nav>
       </Navbar>
       </Col>
       <Col className="col-8 col-lg-8 col-xl-3">
-        <Route path={`${this.props.match.url}/:topicId`} component={Topic} />
+        <Route path={`${this.props.match.url}/:topicId/:id?/:type?`} component={Topic} />
         <Route exact path={this.props.match.url}
           render={
              () => <Alert bsStyle="danger"><h3>Please select a topic.</h3></Alert>
