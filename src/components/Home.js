@@ -1,13 +1,17 @@
 import React from "react";
-// import { BrowserRouter as Router} from "react-router-dom";
-// import {Route, Link} from "react-router-dom";
+
+//importing react-bootstrap
+import {Alert} from "react-bootstrap"
 
 
 // Simple regular boring components
 class Home extends React.Component {
     render(){
       return <div>
-                <h2>Homeish</h2>
+              <h2>Home page</h2>
+              <Alert bsStyle="success">
+              <strong>That's right</strong> We're home man!
+             </Alert>
              </div>
     }
 }
