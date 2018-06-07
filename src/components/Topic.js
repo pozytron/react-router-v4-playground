@@ -9,6 +9,6 @@ import React from "react";
                 <h4>Optional param type: {this.props.match.params.type}</h4>
              </div>
     }
-}
+} 
 
 export default Topic;

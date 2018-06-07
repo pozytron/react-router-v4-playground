@@ -9,15 +9,16 @@ import {Label} from "react-bootstrap"
       let calcBy = 2;
       switch (this.props.match.params.operation) {
         case "multiply":
-          result = parseInt(this.props.match.params.number) * calcBy;
+          result = parseInt(this.props.match.params.number,10) * calcBy;
         break;
         case "add":
-        result = parseInt(this.props.match.params.number) + calcBy;
+        result = parseInt(this.props.match.params.number,10) + calcBy;
 
         break;
         case "sqrt":
-        result = Math.sqrt(parseInt(this.props.match.params.number));
+        result = Math.sqrt(parseInt(this.props.match.params.number,10));
         break;
+        default:
       }
 
       return <div>
